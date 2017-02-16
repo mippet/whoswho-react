@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Title from './components/Title'
+import Title from '../Title'
 import { connect } from 'react-redux'
 
 export class Card extends PureComponent {
