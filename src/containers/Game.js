@@ -8,11 +8,12 @@ export class Game extends PureComponent {
     return(
       <div>
         <Title content="New Game" />
-        <{...card}/>
+        <Card />
       </div>
     )
   }
 }
+
 
 
 
