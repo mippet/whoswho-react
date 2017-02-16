@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Title from '../components/title'
+import Title from '../components/Title'
 import { connect } from 'react-redux'
 
 export class Lobby extends PureComponent {
