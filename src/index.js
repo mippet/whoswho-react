@@ -12,6 +12,7 @@ injectTapEventPlugin()
 
 import App from './App'
 import Lobby from './containers/Lobby'
+import Game from './containers/Game'
 import SignUp from './users/SignUp'
 import SignIn from './users/SignIn'
 
@@ -20,7 +21,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Lobby} />
-        <Route path="/lobby" component={Lobby} />
+        <Route path="/game" component={Game} />
         // <Route path="/sign-up" component={SignUp} />
         // <Route path="/sign-in" component={SignIn} />
       </Route>
