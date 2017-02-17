@@ -3,9 +3,11 @@
 import loadError from './load-error'
 import loading from './loading'
 import currentUser from './current-user'
+import games from './games'
 
 module.exports = {
   loadError,
   loading,
   currentUser,
+  games,
 }
