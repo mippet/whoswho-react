@@ -1,8 +1,8 @@
-// src/actions/recipes/fetch.js
 import API from '../../middleware/api'
 import loadError from '../load/error'
 import loadSuccess from '../load/success'
 import loading from '../loading'
+
 export const FETCHED_RECIPES = 'FETCHED_RECIPES'
 
 const api = new API()
