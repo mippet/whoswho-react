@@ -1,6 +1,7 @@
 import API from '../../middleware/api'
 const api = new API()
 const game = api.service('game')
+export const FLIPPED_CARDS = 'FLIPPED_CARDS'
 
 export default (card, user) => {
   //checking if the card is flipped by the user by checking if there is this user's id in the flippedBy object/array
@@ -17,5 +18,5 @@ export default (card, user) => {
       // e.g. redirect to sign in!
     })
 
-  return { type: 'FLIPPED_CARD' }
+  return { type: 'FLIPPED_CARDS' }
 }
