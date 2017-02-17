@@ -21,8 +21,8 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Lobby} />
-        <Route path="/game" component={Game} />
-        // <Route path="/sign-up" component={SignUp} />
+          <Route path="game/:gameId" component={Game} />
+          // <Route path="/sign-up" component={SignUp} />
         // <Route path="/sign-in" component={SignIn} />
       </Route>
     </Router>
