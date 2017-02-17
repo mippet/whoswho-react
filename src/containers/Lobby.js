@@ -20,7 +20,6 @@ export class Lobby extends PureComponent {
         <Title content="Game Lobby" />
         <RaisedButton label="Create Game" primary={true} onClick={ createGame} />
         <List>
-          //here you should see a list of games, with game _id
           <RaisedButton label="Join Game" />
         </List>
       </div>
@@ -28,7 +27,7 @@ export class Lobby extends PureComponent {
   }
 }
 
-//create NewGameButton
-//import JoinButton
-//import list of games
+
+
+
 export default connect(null,{setupGames, createGame})(Lobby)
