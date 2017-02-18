@@ -1,5 +1,5 @@
-import { SELECTED_CARD } from '../actions/card/select-card'
-import { PICKED_CARD } from '../actions/card/pick-card'
+import { SELECTED_CARD } from '../actions/cards/select-card'
+import { PICKED_CARD } from '../actions/cards/pick-card'
 
 export default (state = [], { type, payload } = {}) => {
   switch(type) {
