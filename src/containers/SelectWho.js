@@ -3,11 +3,11 @@ import Title from '../components/Title'
 import { connect } from 'react-redux'
 import Card from '../components/Card'
 
-export class Game extends PureComponent {
+export class SelectWho extends PureComponent {
   render() {
     return(
       <div>
-        <Title content="New Game" />
+        <Title content="Select your cat!" />
         <Card />
       </div>
     )
@@ -16,5 +16,4 @@ export class Game extends PureComponent {
 
 
 
-
-export default (Game)
+export default (SelectWho)

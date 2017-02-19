@@ -27,7 +27,7 @@ export class Lobby extends PureComponent {
 
   showGameItem(game, index){
     //making function that enables rendering GameItem component by assigning its index from games array as key + destructuring all game props
-    return <GameItem key={ index } { ...game } /}
+    return <GameItem key={ index } { ...game } />
   }
 
   addNewGame() {
@@ -37,9 +37,9 @@ export class Lobby extends PureComponent {
 
   render() {
     return(
-      <div classname="games wrapper">
+      <div className="games wrapper">
         <header>
-          <Title content="Welcome to Guess Who? Lobby!"/>
+          <Title content={'Welcome ' + this.props.currentUser.name}/>
         </header>
 
         <RaisedButton
