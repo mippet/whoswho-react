@@ -23,7 +23,6 @@ export class Lobby extends PureComponent {
         <RaisedButton label="Create Game" primary={true} onClick={ createGame} />
 
           <RaisedButton label="Join Game" />
-          console.log("join is clicked")
       </div>
     )
   }
