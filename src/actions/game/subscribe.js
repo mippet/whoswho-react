@@ -1,42 +1,42 @@
 // src/actions/recipes/subscribe.js
 import API from '../../middleware/api'
 
-export const SUBSCRIBED_TO_RECIPES_SERVICE = 'SUBSCRIBED_TO_RECIPES_SERVICE'
-export const RECIPE_CREATED = 'RECIPE_CREATED'
-export const RECIPE_UPDATED = 'RECIPE_UPDATED'
-export const RECIPE_REMOVED = 'RECIPE_REMOVED'
+export const SUBSCRIBED_TO_GAMES_SERVICE = 'SUBSCRIBED_TO_GAMES_SERVICE'
+export const GAME_CREATED = 'GAME_CREATED'
+export const GAME_UPDATED = 'GAME_UPDATED'
+export const GAME_REMOVED = 'GAME_REMOVED'
 
 const api = new API()
-const recipes = api.service('recipes')
+const games = api.service('games')
 
 export default () => {
   return (dispatch) => {
-    recipes.on('created', (recipe) => { dispatch(createdRecipe(recipe)) })
-    recipes.on('updated', (recipe) => { dispatch(updatedRecipe(recipe)) })
-    recipes.on('patched', (recipe) => { dispatch(updatedRecipe(recipe)) })
-    recipes.on('removed', (recipe) => { dispatch(removedRecipe(recipe)) })
+    games.on('created', (game) => { dispatch(createdGame(recipe)) })
+    games.on('updated', (game) => { dispatch(updatedGame(recipe)) })
+    games.on('patched', (game) => { dispatch(updatedGame(recipe)) })
+    games.on('removed', (game) => { dispatch(removedGame(recipe)) })
 
-    dispatch({ type: SUBSCRIBED_TO_RECIPES_SERVICE })
+    dispatch({ type: SUBSCRIBED_TO_GAMES_SERVICE })
   }
 }
 
-const createdRecipe = (recipe) => {
+const createdGame = (game) => {
   return {
-    type: RECIPE_CREATED,
-    payload: recipe
+    type: GAME_CREATED,
+    payload: game
   }
 }
 
-const updatedRecipe = (recipe) => {
+const updatedGame = (game) => {
   return {
-    type: RECIPE_UPDATED,
-    payload: recipe
+    type: GAME_UPDATED,
+    payload: game
   }
 }
 
-const removedRecipe = (recipe) => {
+const removedGame = (game) => {
   return {
-    type: RECIPE_REMOVED,
-    payload: recipe
+    type: GAME_REMOVED,
+    payload: game
   }
 }

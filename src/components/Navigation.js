@@ -6,6 +6,7 @@ import signOut from '../actions/user/sign-out'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import FlatButton from 'material-ui/FlatButton'
+import ActionHome from 'material-ui/svg-icons/action/home';
 
 export class Navigation extends PureComponent {
   static propTypes = {
@@ -29,8 +30,8 @@ export class Navigation extends PureComponent {
     const { signedIn } = this.props
     return (
       <AppBar
-        title="Who's Who?"
-        iconElementLeft={<IconButton onClick={this.goHome}></IconButton>}
+        title="Guess Who?"
+        iconElementLeft={<IconButton onClick={this.goHome}><ActionHome /></IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={this.signOut.bind(this)} /> :
           <FlatButton label="Sign up" onClick={this.signUp} />
