@@ -2,10 +2,6 @@ import React, { PureComponent } from 'react'
 import Title from './Title'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import toggleFlipAction from '../actions/cards/toggle-flip'
-import pickCard from '../actions/cards/pick-card'
-import selectCard from '../actions/cards/select-card'
-
 // import './Card.sass'
 
 
@@ -37,27 +33,12 @@ class CardBack extends PureComponent {
 
 // React component for the card (main component)
 export class Card extends PureComponent {
-  static propTypes = {
-    _id: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    toggleFlipAction: PropTypes.func.isRequired,
-  }
-
-  toggleFlip() {
-    const { _id, flippedBy, currentUser } = this.props
-
-    if (!currentUser) return
-    console.log('CLICK (Card)', _id)
-    this.props.toggleFlipAction({ _id, likedBy }, currentUser)
-  }
 
   render() {
     return(
       <div className='card-container'>
         <div className='card-body'>
-          <CardBack />
-
-          <CardFront />
+          <Title content="I am a card" />
         </div>
       </div>
     )
