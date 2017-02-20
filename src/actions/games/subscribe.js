@@ -11,10 +11,10 @@ const games = api.service('games')
 
 export default () => {
   return (dispatch) => {
-    games.on('created', (game) => { dispatch(createdGame(recipe)) })
-    games.on('updated', (game) => { dispatch(updatedGame(recipe)) })
-    games.on('patched', (game) => { dispatch(updatedGame(recipe)) })
-    games.on('removed', (game) => { dispatch(removedGame(recipe)) })
+    games.on('created', (game) => { dispatch(createdGame(game)) })
+    games.on('updated', (game) => { dispatch(updatedGame(game)) })
+    games.on('patched', (game) => { dispatch(updatedGame(game)) })
+    games.on('removed', (game) => { dispatch(removedGame(game)) })
 
     dispatch({ type: SUBSCRIBED_TO_GAMES_SERVICE })
   }

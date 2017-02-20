@@ -1,25 +1,30 @@
-// src/actions/user/sign-in.js
 import API from '../../middleware/api'
 import loadError from '../load/error'
 import loadSuccess from '../load/success'
 import loading from '../loading'
-import { history } from '../../store'
-export const USER_SIGNED_IN = 'USER_SIGNED_IN'
+
+export const GAME_FETCHED = 'GAME_FETCHED'
 
 const api = new API()
+const games = api.service('games')
 
-export default (user) => {
+export default () => {
   return (dispatch) => {
     dispatch(loading(true))
+console.log("found games :)")
+    games.find({
+      query: {
+        $limit: 25
+      }
+    })
 
-    api.authenticate(user)
+    api.app.authenticate()
     .then((response) => {
       dispatch(loadSuccess())
       dispatch({
-        type: USER_SIGNED_IN,
+        type: GAME_FETCHED,
         payload: response.data
       })
-      history.push('/games')
     })
     .catch((error) => {
       dispatch(loadError(error))
