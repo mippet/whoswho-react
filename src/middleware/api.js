@@ -1,5 +1,5 @@
 // src/middleware/api.js
-import feathers from 'feathers-client'
+import feathers from 'feathers-client';
 import io from 'socket.io-client';
 
 const host = 'http://localhost:3030'
@@ -22,9 +22,9 @@ class API {
   }
 
   authenticate(user) {
-    if (!user) {
-      return this.app.authenticate()
-    } else {
+    // if (!user) {
+    //   return this.app.authenticate()
+    // } else {
         const { email, password } = user
         return this.app.authenticate(
         Object.assign({}, { type: 'local' }, {
@@ -32,7 +32,6 @@ class API {
         password,
       }))
     }
-  }
 
   signOut() {
     return this.app.logout()
