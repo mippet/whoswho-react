@@ -1,22 +1,23 @@
 import { GAME_FETCHED } from '../actions/games/fetch-game'
-import { GAME_ADDED } from '../actions/games/add-game'
+import { CREATED_GAME } from '../actions/games/create-game'
 import {
   GAME_CREATED,
   GAME_UPDATED,
   GAME_REMOVED
 } from '../actions/games/subscribe'
 
+
 export default (state = [],{ type, payload } = {}) => {
   switch(type) {
     //fetched games return an empty array, we concat ("add")
     // the payload to that array
     case GAME_FETCHED :
-    return [].concat(payload)
+      return [].concat(payload)
 
     //games created returns the payload, we "add" the state to that
     case GAME_CREATED :
     const newGame = Object.assign({}, payload)
-    return [newGame].concat(state)
+      return [newGame].concat(state)
 
     case GAME_UPDATED :
       return state.map((game) => {

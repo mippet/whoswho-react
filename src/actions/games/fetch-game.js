@@ -11,12 +11,14 @@ const games = api.service('games')
 export default () => {
   return (dispatch) => {
     dispatch(loading(true))
-
+console.log("found games :)")
     games.find({
       query: {
         $limit: 25
       }
     })
+
+    api.app.authenticate()
     .then((response) => {
       dispatch(loadSuccess())
       dispatch({
