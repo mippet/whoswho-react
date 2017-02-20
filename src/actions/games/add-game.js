@@ -3,7 +3,7 @@ import loadError from '../load/error'
 import loadSuccess from '../load/success'
 import loading from '../loading'
 
-export const ADDED_GAME = 'ADDED_GAME'
+export const GAME_ADDED = 'GAME_ADDED'
 
 
 const api = new API()
@@ -21,7 +21,7 @@ export default (user) => {
         .then((response) => {
           dispatch(loadSuccess())
           dispatch({
-            type: ADDED_GAME,
+            type: GAME_ADDED,
             payload: response.data
           })
         })

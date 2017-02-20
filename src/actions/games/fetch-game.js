@@ -3,16 +3,16 @@ import loadError from '../load/error'
 import loadSuccess from '../load/success'
 import loading from '../loading'
 
-export const FETCHED_RECIPES = 'FETCHED_RECIPES'
+export const GAME_FETCHED = 'GAME_FETCHED'
 
 const api = new API()
-const recipes = api.service('recipes')
+const games = api.service('games')
 
 export default () => {
   return (dispatch) => {
     dispatch(loading(true))
 
-    recipes.find({
+    games.find({
       query: {
         $limit: 25
       }
@@ -20,7 +20,7 @@ export default () => {
     .then((response) => {
       dispatch(loadSuccess())
       dispatch({
-        type: FETCHED_RECIPES,
+        type: GAME_FETCHED,
         payload: response.data
       })
     })

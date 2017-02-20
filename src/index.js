@@ -24,14 +24,12 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={SignIn} />
-          <Route path="lobby" component={Lobby} />
-          <Route path="select_who/:gameId" component={SelectWho} />
-          <Route path="guess_who/:gameId"
+          <Route path="games" component={Lobby} />
+          <Route path="games/:gameId/select_who" component={SelectWho} />
+          <Route path="games/:gameId/guess_who"
           component={GuessWho}/>
-          <Route path="game_over/:gameId"
+          <Route path="games/:gameId/game_over"
           component={GameOver}/>
-          <Route path="start_game/:gameId"
-          component={StartGame}/>
           // <Route path="/sign-up" component={SignUp} />
         // <Route path="/sign-in" component={SignIn} />
       </Route>

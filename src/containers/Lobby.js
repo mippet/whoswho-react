@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import {List} from 'material-ui/List'
 //actions
-import fetchGames from '../actions/games/fetch'
+import fetchGames from '../actions/games/fetch-game'
 import addGame from '../actions/games/add-game'
 import subscribeToGamesService from '../actions/games/subscribe'
 //components
