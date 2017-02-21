@@ -23,7 +23,7 @@ export class Navigation extends PureComponent {
   }
 
   goHome() {
-    history.push('/')
+    history.push('/games')
   }
 
   render() {
