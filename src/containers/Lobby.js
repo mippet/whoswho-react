@@ -49,12 +49,11 @@ export class Lobby extends PureComponent {
       <div className="games wrapper">
         <header>
           <Title content={'Welcome ' + this.props.currentUser.name}/>
+          <RaisedButton label="Start new game" secondary={true}
+            onClick={this.handleClick.bind(this)} />
         </header>
 
-
-
-        <RaisedButton label="Start new game" secondary={true}
-          onClick={this.handleClick.bind(this)} />
+        <div> </div>
 
         <main className="container">
           { this.props.games.map(this.showGameItems.bind(this)) }
