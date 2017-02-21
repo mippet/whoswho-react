@@ -9,14 +9,15 @@ export const JOINED_GAME = 'JOINED_GAME'
 const api = new API()
 const games = api.service('games')
 
-export default (gameId) => {
+export default (game) => {
   return (dispatch) => {
     dispatch(loading(true))
     // authenticate
     api.app.authenticate()
     // then => create game in database
     .then(() => {
-      games.patch(gameId, { join: true })
+      games.patch(game._id, { joined: true })
+      console.log("patching game...")
       // then => success!
       .then((response) => {
         dispatch(loadSuccess())

@@ -24,8 +24,9 @@ export class GameItem extends PureComponent {
     this.joinGame = this.joinGame.bind(this);
   }
 
-  joinGame(_id) {
-      this.props.joinGame(_id)
+  joinGame() {
+      const { _id } = this.props
+      this.props.joinGame({_Id})
     }
 
   // handleClick(e) {
@@ -40,7 +41,7 @@ export class GameItem extends PureComponent {
       <article className="game">
         <h3>Guess Who game created by {createdBy.name}</h3>
           <RaisedButton label="Join this game" secondary={true}
-            onClick={()=> this.joinGame(_id)} />
+            onClick={()=> this.joinGame.bind(this)} />
       </article>
     )
   }
