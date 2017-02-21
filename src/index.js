@@ -14,8 +14,8 @@ import App from './App'
 import Lobby from './containers/Lobby'
 import SelectWho from './containers/SelectWho'
 import GuessWho from './containers/GuessWho'
-import GameOver from './containers/GameOver'
-import StartGame from './containers/StartGame'
+
+
 import SignUp from './users/SignUp'
 import SignIn from './users/SignIn'
 
@@ -26,12 +26,10 @@ ReactDOM.render(
         <IndexRoute component={SignIn} />
           <Route path="games" component={Lobby} />
           <Route path="games/:gameId/select_who" component={SelectWho} />
-          <Route path="games/:gameId/guess_who"
-          component={GuessWho}/>
-          <Route path="games/:gameId/game_over"
-          component={GameOver}/>
-          // <Route path="/sign-up" component={SignUp} />
-        // <Route path="/sign-in" component={SignIn} />
+          <Route path="games/:gameId/guess_who" component={GuessWho}/>
+
+          <Route path="/sign-up" component={SignUp} />
+        <Route path="/sign-in" component={SignIn} />
       </Route>
     </Router>
   </Provider>,

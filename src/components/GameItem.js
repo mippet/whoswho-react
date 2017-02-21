@@ -9,7 +9,7 @@ import subscribeToGamesService from '../actions/games/subscribe'
 export class GameItem extends PureComponent {
   static propTypes = {
     _id: PropTypes.string.isRequired,
-    createdBy: PropTypes.object.isRequired,
+    createdBy: PropTypes.object,
     joinedBy: PropTypes.object,
     createdAt: PropTypes.string.isRequired,
     created: PropTypes.bool.isRequired,
