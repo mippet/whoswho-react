@@ -29,3 +29,14 @@ export default () => {
     })
   }
 }
+
+// .then((response) => {
+//   dispatch(loadSuccess())
+//   dispatch({
+//     type: STARTED_GAME,
+//     payload: response
+//   })
+//   const selectWhoLink = `/games/${response._id}/select_who`
+//   history.push(selectWhoLink)
+// })
+// // catch => display the error
