@@ -1,5 +1,4 @@
 import { FETCHED_GAMES } from '../actions/games/fetch-games'
-import { CREATED_GAME } from '../actions/games/create-game'
 import {
   GAME_CREATED,
   GAME_UPDATED,
@@ -9,7 +8,7 @@ import {
 
 export default (state = [],{ type, payload } = {}) => {
   switch(type) {
-    //fetched games return an empty array, we concat ("add")
+    //fetched games return an empty array, we concat ("create")
     // the payload to that array
     case FETCHED_GAMES :
       return [].concat(payload)

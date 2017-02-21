@@ -4,7 +4,7 @@ import { history, currentUser } from '../store'
 import RaisedButton from 'material-ui/RaisedButton'
 import {List} from 'material-ui/List'
 //actions
-import fetchGames from '../actions/games/fetch-games'
+import { fetchGames } from '../actions/games/fetch-games'
 import createGame from '../actions/games/create-game'
 import subscribeToGamesService from '../actions/games/subscribe'
 //components
@@ -13,11 +13,11 @@ import GameItem from '../components/GameItem'
 
 export class Lobby extends PureComponent {
   static propTypes = {
-    games: PropTypes.array.isRequired,
-    currentUser: PropTypes.object.isRequired,
-    fetchGames: PropTypes.func.isRequired,
-    createGame: PropTypes.func.isRequired,
-    subscribeToGamesService: PropTypes.func.isRequired,
+    games: PropTypes.array,
+    currentUser: PropTypes.object,
+    fetchGames: PropTypes.func,
+    createGame: PropTypes.func,
+    subscribeToGamesService: PropTypes.func,
   }
 
   componentWillMount() {
@@ -38,9 +38,9 @@ export class Lobby extends PureComponent {
     this.props.createGame()
   }
 
-  showGameItem(game, index){
+  showGameItems(game, index){
     //making function that enables rendering GameItem component by assigning its index from games array as key + destructuring all game props
-    return <ul><GameItem key={ index } { ...game } /></ul>
+    return <GameItem key={ index } { ...game } />
   }
 
   render() {
@@ -57,21 +57,25 @@ export class Lobby extends PureComponent {
           onClick={this.handleClick.bind(this)} />
 
         <main className="container">
-          { this.props.games.map(this.showGameItem.bind(this))}
+          { this.props.games.map(this.showGameItems.bind(this)) }
         </main>
       </div>
     )
   }
 }
 //all static props that are getting data from the store (=> that are not actions) should be destructured in mapStateToProps function
-const mapStateToProps = ({ games, currentUser }) => ({
-  games,
-  currentUser,
-  signedIn: (!!currentUser && !!currentUser._id),
- })
+const mapStateToProps = ( state ) => {
+ return {
+  games: state.games,
+  currentUser: state.currentUser,
+  signedIn: (!!state.currentUser && !!state.currentUser._id),
+  };
+};
+
+ const mapDispatchToProps = {
+   fetchGames,
+   createGame,
+   subscribeToGamesService,
+ };
 //all static propTypes (actions, arrays and objects) should be 'connected' to this component
-export default connect(mapStateToProps, {
-  fetchGames,
-  createGame,
-  subscribeToGamesService,
-}) (Lobby)
+export default connect(mapStateToProps, mapDispatchToProps)(Lobby);

@@ -10,37 +10,47 @@ export class GameItem extends PureComponent {
   static propTypes = {
     _id: PropTypes.string.isRequired,
     createdBy: PropTypes.object.isRequired,
-    createdAt: PropTypes.any.isRequired,
-    started: PropTypes.bool.isRequired,
-    joinGame: PropTypes.func.isRequired,
+    joinedBy: PropTypes.object,
+    createdAt: PropTypes.string.isRequired,
+    created: PropTypes.bool.isRequired,
+    joined: PropTypes.bool.isRequired,
+    players: PropTypes.array.isRequired,
+    turn: PropTypes.number.isRequired,
+    // joinGame: PropTypes.func.isRequired,
   }
 
-  handleClick(e) {
-    const { _id, joinedBy, currentUser } = this.props
-    this.props.joinGame({ _id, joinedBy }, currentUser)
+  constructor(props) {
+    super(props);
+    this.joinGame = this.joinGame.bind(this);
   }
+
+  joinGame(_id) {
+      this.props.joinGame(_id)
+    }
+
+  // handleClick(e) {
+  //   const { _id, joinedBy, currentUser } = this.props
+  //   this.props.joinGame({ _id, joinedBy }, currentUser)
+  // }
 
   render() {
-    const { _id, createdBy, joinedBy, joined } = this.props
+    const { _id, createdBy, CreatedAt, created, joined, players, turn } = this.props
 
     return(
-      <li>
       <article className="game">
-        <h3>Guess Who game created by</h3>
+        <h3>Guess Who game created by {createdBy.name}</h3>
           <RaisedButton label="Join this game" secondary={true}
-            onClick={this.handleClick.bind(this)} />
+            onClick={()=> this.joinGame(_id)} />
       </article>
-      </li>
     )
   }
 }
 
-const mapStateToProps = ({ currentUser }, { joinedBy }) => {
+const mapStateToProps = state => {
   return {
-    currentUser,
-    joinedBy: currentUser
-  }
-}
+    joinedBy: state.currentUser
+  };
+};
 
 export default connect(mapStateToProps, {
   joinGame,
