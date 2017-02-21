@@ -16,7 +16,7 @@ export default (gameId) => {
     api.app.authenticate()
     // then => create game in database
     .then(() => {
-      games.patch(gameId, { joined: 'true' })
+      games.patch(gameId, { join: true })
       // then => success!
       .then((response) => {
         dispatch(loadSuccess())
